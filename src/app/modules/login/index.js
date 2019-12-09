@@ -86,55 +86,49 @@ class Login extends Component {
     const { hasError } = this.state;
 
     return (
-      <Fragment>
-        <LoginWrapper>
-          <LoginHeader>
-            <Logo>
-              <LogoImg src={ImgLogo} alt="ARRIS"/>
-            </Logo>
-            <HeaderText>Network Intelligence</HeaderText>
-          </LoginHeader>
-          {hasError &&
-          <LoginError>
-            <FaIcon
-              mode="fal"
-              icon="info-circle"
-              styles={{ fontSize: '32px' }}
+      <LoginWrapper>
+        <LoginHeader>
+          <Logo>
+            <LogoImg src={ImgLogo} alt="ARRIS"/>
+          </Logo>
+          <HeaderText>Network Intelligence</HeaderText>
+        </LoginHeader>
+        {hasError &&
+        <LoginError>
+          <FaIcon
+            mode="fal"
+            icon="info-circle"
+            styles={{ fontSize: '32px' }}
+          />
+          <LoginErrorText>
+            Sorry, we don’t recognize that username and password.
+            <br/>
+            Please try again or contact your administrator.
+          </LoginErrorText>
+        </LoginError>
+        }
+        <LoginBody>
+          <form onSubmit={this.handleLogin.bind(this)}>
+            <FormField
+              ref={this.usernameField}
+              labelText="Username"
+              fieldId="username"
+              fieldClasses={['form-control-sm']}
+              fieldType="email"
+              handleValueChanged={this.updateStateOnFieldChange.bind(this)}
             />
-            <LoginErrorText>
-              Sorry, we don’t recognize that username and password.
-              <br/>
-              Please try again or contact your administrator.
-            </LoginErrorText>
-          </LoginError>
-          }
-          <LoginBody>
-            <form onSubmit={this.handleLogin.bind(this)}>
-              <FormField
-                ref={this.usernameField}
-                labelText="Username"
-                fieldId="username"
-                fieldClasses={['form-control-sm']}
-                fieldType="email"
-                handleValueChanged={this.updateStateOnFieldChange.bind(this)}
-              />
-              <FormField
-                ref={this.passwordField}
-                labelText="Password"
-                fieldId="password"
-                fieldClasses={['form-control-sm']}
-                fieldType="password"
-                handleValueChanged={this.updateStateOnFieldChange.bind(this)}
-              />
-              <LoginButton>Login</LoginButton>
-            </form>
-          </LoginBody>
-        </LoginWrapper>
-        <Copyright>
-          Network Intelligence v{process.env.REACT_APP_DISPLAY_VERSION}&nbsp;&nbsp;|&nbsp;&nbsp;&copy; ARRIS Group, Ltd
-          2019 All Rights Reserved
-        </Copyright>
-      </Fragment>
+            <FormField
+              ref={this.passwordField}
+              labelText="Password"
+              fieldId="password"
+              fieldClasses={['form-control-sm']}
+              fieldType="password"
+              handleValueChanged={this.updateStateOnFieldChange.bind(this)}
+            />
+            <LoginButton>Login</LoginButton>
+          </form>
+        </LoginBody>
+      </LoginWrapper>
     );
   }
 }

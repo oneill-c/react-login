@@ -13,7 +13,6 @@ import LoginRoute from './components/login-route';
 import ProtectedRoute from './components/protected-route';
 
 import App from '..';
-import Overview from '../modules/overview';
 
 const AppWithProps = withRouter(App);
 

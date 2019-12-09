@@ -1,22 +1,24 @@
-import { combineReducers } from 'redux';
+// EXAMPLE GLOBAL REDUCERS
 
-import login from '../modules/login/reducers';
-import sidebar from '../modules/sidebar/reducers';
+// import { combineReducers } from 'redux';
 
-import { ActionTypes } from '../modules/login/constants';
+// import login from '../modules/login/reducers';
+// import sidebar from '../modules/sidebar/reducers';
 
-const appReducers = combineReducers({
-  login,
-  sidebar
-});
+// import { ActionTypes } from '../modules/login/constants';
 
-const Reducer = (state, action) => {
-  // Handle a user logout and completely reset state
-  if (action.type === ActionTypes.LOG_OUT_SUCCESS) {
-    state = undefined;
-  }
+// const appReducers = combineReducers({
+//   login,
+//   sidebar
+// });
 
-  return appReducers(state, action);
-};
+// const Reducer = (state, action) => {
+//   // Handle a user logout and completely reset state
+//   if (action.type === ActionTypes.LOG_OUT_SUCCESS) {
+//     state = undefined;
+//   }
 
-export default Reducer;
+//   return appReducers(state, action);
+// };
+
+// export default Reducer;

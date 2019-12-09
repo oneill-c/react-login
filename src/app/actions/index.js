@@ -1,3 +1,5 @@
+// // EXAMPLE GLOBAL ACTIONS
+
 // Top-level actions go here, e.g. API calls needed on start-up
 
 // import axios from 'axios';
